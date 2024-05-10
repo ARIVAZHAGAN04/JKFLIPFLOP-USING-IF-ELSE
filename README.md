@@ -74,8 +74,42 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 **PROGRAM**
 
 
-Developed by :Abinaya A
-Reg no:212223040003
+Developed by :ARIVAZHAGAN GR 
+Reg no:212223040020
+module JK(q, qb,j,k,clock,reset);
+    input j,k,clock,reset;
+    output reg q, qb;
+	 
+always @ (posedge (clock))
+
+    begin 
+        if (!reset)
+            begin
+               q <= q;
+               qb <=qb;
+            end   
+        
+else
+	begin
+		if(j==0&&k==0)
+			begin
+			q<=q;
+			qb<=qb;
+			end
+		else if(j!=k)
+			begin
+			q<=j;
+			qb<=k;
+			end
+		else if(j==1&&k==1)
+			begin
+			q<=~q;
+			qb<=~qb;
+			end
+	end
+end
+            
+endmodule
 
 
 ```
@@ -136,8 +170,6 @@ endmodule
 
 
 **RESULTS**
-
-
 
 
  Implementation of JK flipflop using verilog and validating their functionality using their functional tables is executed and the output is verified successfully
